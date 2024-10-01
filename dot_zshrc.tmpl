@@ -1,5 +1,9 @@
 #zsh theme
+{{- if eq .chezmoi.os "darwin" }}
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+{{- else }}
+source ~/.zshcustom/themes/powerlevel10k/powerlevel10k.zsh-theme
+{{- end }}
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -28,8 +32,14 @@ alias gpristine='git reset --hard HEAD && git clean -dfx'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #plugins
+{{- if eq .chezmoi.os "darwin" }}
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+{{- else }}
+source ~/.zshcustom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zshcustom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+{{- end }}
+
 # ---- Eza (better ls) -----
 alias ls="eza -a --icons=always"
 # ---- Zoxide (better cd) ----
