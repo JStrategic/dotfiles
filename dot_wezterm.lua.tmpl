@@ -5,9 +5,12 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
-
+{{- if eq .chezmoi.os "darwin" }}
 config.font = wezterm.font("MesloLGS Nerd Font Mono")
 config.font_size = 19
+{{- else }}
+config.font_size = 16
+{{- end }}
 
 config.enable_tab_bar = true
 
