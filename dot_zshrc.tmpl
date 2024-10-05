@@ -43,6 +43,9 @@ source ~/.zshcustom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ---- Eza (better ls) -----
 alias ls="eza -a --icons=always"
 # ---- Zoxide (better cd) ----
+{{- if eq .chezmoi.osRelease.name "Ubuntu" }}
+export PATH="$PATH:$HOME/.local/bin/"
+{{- end }}
 eval "$(zoxide init zsh)"
 alias cd="z"
 
