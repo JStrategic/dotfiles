@@ -50,6 +50,10 @@ source ~/.zshcustom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zshcustom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 {{- end }}
 
+{{- if stat (joinPath .chezmoi.homeDir ".config/op/plugins.sh") }}
+source ~/.config/op/plugins.sh
+{{- end }}
+
 # ---- Eza (better ls) -----
 alias ls="eza -a --icons=always"
 # ---- Zoxide (better cd) ----
