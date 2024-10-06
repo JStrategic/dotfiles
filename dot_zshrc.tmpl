@@ -15,7 +15,7 @@ fi
 #general aliases
 alias reloadterm="source ~/.zshrc"
 
-{{- if eq .chezmoi.osRelease.variantID "kde" }}
+{{- if (and (eq .chezmoi.os "Linux") (eq .chezmoi.osRelease.variantID "kde")) }}
 
 #kde specific aliases
 alias rkrunner="killall krunner && kstart krunner"
@@ -57,7 +57,7 @@ source ~/.config/op/plugins.sh
 # ---- Eza (better ls) -----
 alias ls="eza -a --icons=always"
 # ---- Zoxide (better cd) ----
-{{- if eq .chezmoi.osRelease.name "Ubuntu" }}
+{{- if (and (eq .chezmoi.os "Linux") (eq .chezmoi.osRelease.name "Ubuntu")) }}
 export PATH="$PATH:$HOME/.local/bin/"
 {{- end }}
 eval "$(zoxide init zsh)"
