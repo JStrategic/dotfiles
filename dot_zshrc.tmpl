@@ -1,3 +1,8 @@
+# Fastfetch at start of terminal
+if [ -f /usr/bin/fastfetch ]; then
+	fastfetch
+fi
+
 #zsh theme
 {{- if eq .chezmoi.os "darwin" }}
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
