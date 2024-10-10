@@ -66,7 +66,7 @@ source ~/.config/op/plugins.sh
 # ---- Eza (better ls) -----
 alias ls="eza -a --icons=always"
 # ---- Zoxide (better cd) ----
-{{- if (and (eq .chezmoi.os "Linux") (eq .chezmoi.osRelease.name "Ubuntu")) }}
+{{- if (and (or (eq .chezmoi.os "Linux") (eq .chezmoi.os "linux")) (eq .chezmoi.osRelease.name "Ubuntu")) }}
 export PATH="$PATH:$HOME/.local/bin/"
 {{- end }}
 eval "$(zoxide init zsh)"
