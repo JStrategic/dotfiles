@@ -19,14 +19,7 @@ fi
 
 #general aliases
 alias reloadterm="source ~/.zshrc"
-
-{{- if (and (eq .chezmoi.os "Linux") (eq .chezmoi.osRelease.variantID "kde")) }}
-
-#kde specific aliases
-alias rkrunner="killall krunner && kstart krunner"
-alias rpshell="killall plasmashell && kstart plasmashell"
-alias dnfi="dnf install"
-{{- end }}
+alias _="sudo"
 
 #chezmoi aliases
 alias ccd="cd ~/.local/share/chezmoi/"
