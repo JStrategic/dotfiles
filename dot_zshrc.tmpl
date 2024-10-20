@@ -25,7 +25,7 @@ alias _="sudo"
 alias ccd="cd ~/.local/share/chezmoi/"
 alias ce="chezmoi edit"
 alias ca="chezmoi apply"
-alias updateconfigs="chezmoi update"
+alias chezup="chezmoi update"
 alias checkdiffconfigs="chezmoi git pull -- --autostash --rebase && chezmoi diff"
 
 #git aliases and functions
@@ -57,13 +57,16 @@ source ~/.config/op/plugins.sh
 {{- end }}
 
 # ---- Eza (better ls) -----
-alias ls="eza -a --icons=always"
+alias ls="eza -l -a --icons=always --git"
 # ---- Zoxide (better cd) ----
 {{- if (and (or (eq .chezmoi.os "Linux") (eq .chezmoi.os "linux")) (eq .chezmoi.osRelease.name "Ubuntu")) }}
 export PATH="$PATH:$HOME/.local/bin/"
 {{- end }}
 eval "$(zoxide init zsh)"
 alias cd="z"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # history setup
 HISTFILE=$HOME/.zhistory
