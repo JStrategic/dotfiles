@@ -12,14 +12,22 @@ config.font_size = 19
 config.font_size = 16
 {{- end }}
 
+{{- if eq .chezmoi.os "darwin" }}
 config.enable_tab_bar = true
-
 config.window_decorations = "RESIZE"
+{{- else }}
+config.enable_tab_bar = false
+config.window_decorations = "NONE"
+{{- end }}
 
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 10
 
+{{- if eq .chezmoi.os "darwin" }}
 config.color_scheme = 'Catppuccin Mocha'
+{{- else }}
+config.color_scheme = 'Dracula (Official)'
+{{- end }}
 
 -- and finally, return the configuration to wezterm
 return config

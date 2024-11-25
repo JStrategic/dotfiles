@@ -85,3 +85,8 @@ bindkey '^[[B' history-search-forward
 #linuxbrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{- end }}
+
+{{- if (or (eq .chezmoi.os "Linux") (eq .chezmoi.os "linux")) }}
+#add bin folder from home to path
+export PATH="$HOME/.local/bin:$PATH"
+{{- end }}
