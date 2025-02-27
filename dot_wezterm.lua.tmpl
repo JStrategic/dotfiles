@@ -12,11 +12,10 @@ config.font_size = 19
 config.font_size = 16
 {{- end }}
 
+config.enable_tab_bar = false
 {{- if eq .chezmoi.os "darwin" }}
-config.enable_tab_bar = true
 config.window_decorations = "RESIZE"
 {{- else }}
-config.enable_tab_bar = false
 config.window_decorations = "NONE"
 {{- end }}
 
